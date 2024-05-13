@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -50,22 +52,21 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.google.material)
-    implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.navigation.fragment)
-    implementation(libs.androidx.navigation.ui)
-    implementation(libs.androidx.lifecycle)
-    implementation(libs.google.hilt)
-    implementation(libs.squareup.retrofit2)
-    implementation(libs.squareup.glide)
-    implementation(libs.kotlinx.coroutines)
-    implementation(libs.io.reactivex)
-    implementation(libs.squareup.okhttp)
+    implementation(libs.compose.ui)
+    implementation(libs.compose.material)
+    implementation(libs.compose.ui.tooling.preview)
+    implementation(libs.compose.ui.graphics)
+    implementation(libs.activity.compose)
+    implementation(libs.hilt.android)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson.converter)
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
+    implementation(libs.navigation.compose)
 
-    // Usar un bundle
-    implementation(libs.bundles.network)
-    implementation(libs.bundles.image)
+
 }
