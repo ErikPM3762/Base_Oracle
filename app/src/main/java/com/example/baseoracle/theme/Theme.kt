@@ -11,9 +11,9 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
 private val lightColorPalette = lightColors(
-    primary = AhorrobusPrimary,
-    primaryVariant = AhorrobusPrimary,
-    secondary = AhorrobusPrimary)
+    primary = ahorrobusPrimary,
+    primaryVariant = ahorrobusPrimary,
+    secondary = ahorrobusPrimary)
 
 @Composable
 fun BaseOracleTheme(
