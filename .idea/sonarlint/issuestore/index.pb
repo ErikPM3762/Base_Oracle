@@ -45,3 +45,15 @@ p
 -.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
 S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+_
+/app/src/main/java/com/example/baseoracle/App.kt,9\9\9952b5b5f5093a837fde0caded7be883ccf91a45
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+K
+app/src/main/cpp/secure.cpp,b\b\bbb9d22fdecbf560fb638cb4147282766864e6c0
+c
+3app/src/main/java/com/example/baseoracle/AppBase.kt,e\9\e94601c65258a8b544f5693e3f482da6152be819
+}
+Mapp/src/main/java/com/example/baseoracle/ui/route/NavHostFragmentContainer.kt,f\0\f0938fcc7525da1679c155c5731e43e8962fb948
+O
+app/src/main/cpp/CMakeLists.txt,1\3\139cf375521ce3ba560a5e7568e43113a100f5ad

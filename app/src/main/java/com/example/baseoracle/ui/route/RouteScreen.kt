@@ -1,27 +1,44 @@
 package com.example.baseoracle.ui.route
 
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.Text
+import android.view.View
+import android.view.ViewGroup
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
+import androidx.compose.ui.viewinterop.AndroidView
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentContainerView
+import androidx.navigation.fragment.NavHostFragment
 
 @Composable
-fun RouteScreen(
-    navController : NavController
-) {
-    ScreenContent(text = "Pantalla Ruta")
-}
+fun RouteScreen(fragmentActivity: FragmentActivity) {
+    val fragmentManager = fragmentActivity.supportFragmentManager
 
-@Composable
-fun ScreenContent(text: String) {
-    Text(
-        text = text,
-        style = TextStyle(fontSize = 24.sp),
-        textAlign = TextAlign.Center,
-        modifier = Modifier.fillMaxWidth()
+    AndroidView(
+        modifier = Modifier.fillMaxSize(),
+        factory = { ctx ->
+            FragmentContainerView(ctx).apply {
+                id = View.generateViewId()
+                layoutParams = ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT
+                )
+            }
+        },
+        update = { containerView ->
+            val navGraphResourceId = com.movilityado.featureline.R.navigation.nav_graph_lines
+
+            if (fragmentManager.findFragmentById(containerView.id) == null) {
+                val navHostFragment = NavHostFragment.create(navGraphResourceId)
+                fragmentManager.beginTransaction()
+                    .replace(containerView.id, navHostFragment)
+                    .setPrimaryNavigationFragment(navHostFragment)
+                    .commitNowAllowingStateLoss()
+            }
+        }
     )
 }
+
+
+
+

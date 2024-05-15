@@ -2,7 +2,10 @@ package com.example.baseoracle.navigation
 
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.Modifier
+import androidx.fragment.app.FragmentActivity
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -11,23 +14,35 @@ import com.example.baseoracle.ui.home.HomeScreen
 import com.example.baseoracle.ui.rate.RateScreen
 import com.example.baseoracle.ui.route.RouteScreen
 
+val LocalFragmentActivity = compositionLocalOf<FragmentActivity?> { null }
 @Composable
-fun Navigation(navController: NavController) {
-    NavHost(
-        modifier = Modifier.navigationBarsPadding(),
-        navController = navController as NavHostController,
-        startDestination = Screens.COMO_IR.route
-    ) {
-        composable(Screens.COMO_IR.route) {
-            HomeScreen(navController)
-        }
+fun Navigation(navController: NavController, idLocalCompany: Int, fragmentActivity: FragmentActivity) {
+    CompositionLocalProvider(LocalFragmentActivity provides fragmentActivity) {
+        NavHost(
+            modifier = Modifier.navigationBarsPadding(),
+            navController = navController as NavHostController,
+            startDestination = Screens.COMO_IR.route
+        ) {
+            composable(Screens.COMO_IR.route) {
+                HomeScreen(navController)
+            }
 
-        composable(Screens.RUTAS.route) {
-            RateScreen(navController)
-        }
+            composable(Screens.RUTAS.route) {
+                if (idLocalCompany == 53) {
+                    RouteScreen(fragmentActivity)
+                } else {
+                    RouteScreen(fragmentActivity)
+                }
+            }
 
-        composable(Screens.TARIFAS.route) {
-            RouteScreen(navController)
+            composable(Screens.TARIFAS.route) {
+                RateScreen(navController)
+            }
+
+            if (navController.currentDestination?.route == Screens.COMO_IR.route) {
+                fragmentActivity?.finish()
+            }
         }
     }
 }
+

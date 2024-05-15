@@ -8,11 +8,13 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.baseoracle.navigation.LocalFragmentActivity
 
 @Composable
 fun HomeScreen(
     navController : NavController
 ) {
+    val fragmentActivity = LocalFragmentActivity.current
     ScreenContent(text = "Pantalla Como ir")
 }
 
