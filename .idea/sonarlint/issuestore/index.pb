@@ -1,6 +1,4 @@
 
-j
-:app/src/main/java/com/example/baseoracle/ui/theme/Theme.kt,1\7\178dcb43815b2625473ca8509d99ac1d1bb10f9b
 h
 8app/src/main/java/com/example/baseoracle/MainActivity.kt,c\e\ce9e131257867792dfea1ea8185a8790abae3d1b
 D
@@ -21,16 +19,12 @@ B
 gradlew.bat,2\a\2a45a911a8f1836b0b6c5b758962572012d8f8c3
 A
 gradle.properties,2\a\2afbb999f001938c88fa43fc2ef52abf0f8213e4
-i
-9app/src/main/java/com/example/baseoracle/ui/MainScreen.kt,0\2\0239aee044f2ee99c62adf19edf76e6c0fe85867
 g
 7app/src/main/java/com/example/baseoracle/theme/Theme.kt,6\6\667e6346c0138e480301a4cce493466442be8959
 q
 Aapp/src/main/java/com/example/baseoracle/navigation/Navigation.kt,8\6\862025093dbab9c6be4f9e4090a7f476e3cf0626
 n
 >app/src/main/java/com/example/baseoracle/navigation/Screens.kt,3\2\328ee761961f4eb096235ce3c28195ecfba86181
-f
-6app/src/main/java/com/example/baseoracle/theme/Type.kt,a\4\a475fe578b7414c4d9a3e6787490805e7ec831a7
 g
 7app/src/main/java/com/example/baseoracle/theme/Color.kt,3\8\38165f2757f4a7b34d98c6d1d51d576364173894
 z
@@ -51,9 +45,29 @@ P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 K
 app/src/main/cpp/secure.cpp,b\b\bbb9d22fdecbf560fb638cb4147282766864e6c0
-c
-3app/src/main/java/com/example/baseoracle/AppBase.kt,e\9\e94601c65258a8b544f5693e3f482da6152be819
 }
 Mapp/src/main/java/com/example/baseoracle/ui/route/NavHostFragmentContainer.kt,f\0\f0938fcc7525da1679c155c5731e43e8962fb948
 O
 app/src/main/cpp/CMakeLists.txt,1\3\139cf375521ce3ba560a5e7568e43113a100f5ad
+r
+Bapp/src/main/java/com/example/baseoracle/ui/route/RegionsScreen.kt,8\c\8c3b36f7f27673ce6b8dc2f43c573654e0b0eddf
+
+Oapp/src/main/java/com/example/baseoracle/ui/regions/NavHostFragmentContainer.kt,4\2\42de7c37d1dadda81cd5528c5bb7f91e7861a941
+t
+Dapp/src/main/java/com/example/baseoracle/ui/regions/RegionsScreen.kt,9\c\9cc10d8fd24f74d2e4cb0f7ca9d94b715a17386b
+ƒ
+Sapp/src/main/java/com/example/baseoracle/ui/linesModule/NavHostFragmentContainer.kt,8\6\863cae5c016dc9d44435552a4437745251158432
+x
+Happ/src/main/java/com/example/baseoracle/ui/linesModule/RegionsScreen.kt,7\d\7ded034ac911d5ec4b773b741a787f4c8ef68022
+}
+Mapp/src/main/java/com/example/baseoracle/ui/linesModule/LineModuleObserver.kt,d\3\d34d79c2b8057b3f5be6eebbfa75671a7815ff31
+i
+9app/src/main/java/com/example/baseoracle/ui/StopScreen.kt,d\1\d13b143803d074aecc0f47c2666b4ef658c53825
+o
+?app/src/main/java/com/example/baseoracle/ui/stops/StopScreen.kt,7\f\7f0b8447781211cf7794030394e62b781fadca06
+f
+6app/src/main/java/com/example/baseoracle/theme/Type.kt,a\4\a475fe578b7414c4d9a3e6787490805e7ec831a7
+w
+Gapp/src/main/java/com/example/baseoracle/navigation/RouteScreenState.kt,3\9\39c2720de42a545e07bd27e8ae4fbd1182ee3362
+w
+Gapp/src/main/java/com/example/baseoracle/ui/route/LineModuleObserver.kt,a\a\aa62e32c1eec44f1c341bf25d53ea2a34f834c8f

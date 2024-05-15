@@ -17,10 +17,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.example.baseoracle.theme.Gotham
 import com.example.baseoracle.theme.ahorrobusPrimary
 import com.example.baseoracle.theme.navigationBackgroundSelect
 
@@ -39,7 +41,10 @@ fun BottomNavigationBar(navController: NavController) {
         contentColor = Color.Gray
     ) {
         items.forEach { screen ->
-            val selected = currentRoute == screen.route
+            val selected = when (screen.route) {
+                Screens.RUTAS.route -> currentRoute == Screens.RUTAS.route || currentRoute == Screens.STOP.route
+                else -> currentRoute == screen.route
+            }
             BottomNavigationItem(
                 icon = {
                     Box(
@@ -71,7 +76,9 @@ fun BottomNavigationBar(navController: NavController) {
                             text = screen.label,
                             modifier = Modifier.fillMaxWidth(),
                             textAlign = TextAlign.Center,
-                            maxLines = 1
+                            maxLines = 1,
+                            fontFamily = Gotham,
+                            fontWeight = FontWeight.Light
                         )
                     }
 

@@ -26,7 +26,7 @@ fun RouteScreen(fragmentActivity: FragmentActivity) {
             }
         },
         update = { containerView ->
-            val navGraphResourceId = com.movilityado.featureline.R.navigation.nav_graph_lines
+            val navGraphResourceId = com.movilityado.featureregions.R.navigation.nav_graph_regions
 
             if (fragmentManager.findFragmentById(containerView.id) == null) {
                 val navHostFragment = NavHostFragment.create(navGraphResourceId)

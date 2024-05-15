@@ -11,8 +11,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.baseoracle.ui.home.HomeScreen
-import com.example.baseoracle.ui.rate.RateScreen
 import com.example.baseoracle.ui.route.RouteScreen
+import com.example.baseoracle.ui.rate.RateScreen
+import com.example.baseoracle.ui.stops.StopScreen
 
 val LocalFragmentActivity = compositionLocalOf<FragmentActivity?> { null }
 @Composable
@@ -23,6 +24,7 @@ fun Navigation(navController: NavController, idLocalCompany: Int, fragmentActivi
             navController = navController as NavHostController,
             startDestination = Screens.COMO_IR.route
         ) {
+            // Navegacion de navbar
             composable(Screens.COMO_IR.route) {
                 HomeScreen(navController)
             }
@@ -39,10 +41,17 @@ fun Navigation(navController: NavController, idLocalCompany: Int, fragmentActivi
                 RateScreen(navController)
             }
 
+            // Navegacion app
+            composable(Screens.STOP.route) {
+                StopScreen(fragmentActivity)
+            }
+
+            // Navegacion modulos para manejar el back
             if (navController.currentDestination?.route == Screens.COMO_IR.route) {
-                fragmentActivity?.finish()
+                fragmentActivity.finish()
             }
         }
     }
 }
+
 
