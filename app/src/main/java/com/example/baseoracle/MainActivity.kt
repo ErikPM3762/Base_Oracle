@@ -1,6 +1,7 @@
 package com.example.baseoracle
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
@@ -36,9 +37,9 @@ private const val DESC_REGION = "Ahorrobus"
 class MainActivity : FragmentActivity() {
     private val idLocalCompany = 11
     private var currentTitle: String by mutableStateOf("")
-    private var currentRoute: String? = null
     private var showTopBar: Boolean by mutableStateOf(false)
     private var showArrow: Boolean by mutableStateOf(false)
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +48,7 @@ class MainActivity : FragmentActivity() {
 
         setContent {
             BaseOracleTheme {
-                val navController = rememberNavController()
+                navController = rememberNavController()
 
                 observeNavController(navController)
                 LineModuleObserver(
@@ -98,25 +99,54 @@ class MainActivity : FragmentActivity() {
 
     private fun observeNavController(navController: NavController) {
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            currentRoute = destination.route
-            currentTitle = when (currentRoute) {
+            when (destination.route) {
+
+                //Control de header items
                 Screens.RUTAS.route -> {
-                    baseContext.getString(R.string.top_bar_route)
+                    showArrow = false
+                    showTopBar = true
+                    currentTitle = baseContext.getString(R.string.top_bar_route)
                 }
 
                 Screens.TARIFAS.route -> {
-                    baseContext.getString(R.string.item_recharge)
+                    showArrow = false
+                    showTopBar = true
+                    currentTitle = baseContext.getString(R.string.item_recharge)
+                }
+
+                //Control de Header App
+
+                Screens.LINE.route,  Screens.DETAIL_LINE.route -> {
+                    showArrow = true
+                    showTopBar = true
                 }
 
                 Screens.STOP.route -> {
-                    baseContext.getString(R.string.top_bar_stop_detail)
+                    showArrow = true
+                    showTopBar = true
+                    currentTitle = baseContext.getString(R.string.top_bar_stop_detail)
                 }
 
-                else -> ""
+                else -> {
+                    showTopBar = false
+                    currentTitle = ""
+                }
             }
-            showTopBar = currentRoute != Screens.COMO_IR.route
         }
     }
+
+    override fun onBackPressed() {
+        //Los ID screen son de la pantalla de donde vienen
+        when (navController.currentDestination?.route) {
+            Screens.STOP.route -> {
+                currentTitle = baseContext.getString(R.string.obs_detail_route)
+            }
+            Screens.DETAIL_LINE.route -> {
+                val nameMacroRegion = LineModuleInfo.getInfoLines().getDescMacroRegion()
+                val title = baseContext.getString(R.string.obs_route)
+                currentTitle = ("$title $nameMacroRegion")
+            }
+        }
+        super.onBackPressed()
+    }
 }
-
-

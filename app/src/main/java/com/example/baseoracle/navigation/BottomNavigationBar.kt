@@ -85,11 +85,9 @@ fun BottomNavigationBar(navController: NavController) {
                 },
                 selected = selected,
                 onClick = {
-                    if (navController.currentDestination?.route != screen.route) {
-                        navController.navigate(screen.route) {
-                            popUpTo(navController.graph.startDestinationId)
-                            launchSingleTop = true
-                        }
+                    navController.navigate(screen.route) {
+                        popUpTo(navController.graph.startDestinationId)
+                        launchSingleTop = true
                     }
                 },
                 selectedContentColor = ahorrobusPrimary,

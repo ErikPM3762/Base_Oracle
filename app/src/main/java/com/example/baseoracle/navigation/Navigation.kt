@@ -11,13 +11,20 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.baseoracle.ui.home.HomeScreen
-import com.example.baseoracle.ui.route.RouteScreen
+import com.example.baseoracle.ui.route.MacroRegionsScreen
 import com.example.baseoracle.ui.rate.RateScreen
+import com.example.baseoracle.ui.route.DetailLineScreen
+import com.example.baseoracle.ui.route.LineScreen
 import com.example.baseoracle.ui.stops.StopScreen
 
 val LocalFragmentActivity = compositionLocalOf<FragmentActivity?> { null }
+
 @Composable
-fun Navigation(navController: NavController, idLocalCompany: Int, fragmentActivity: FragmentActivity) {
+fun Navigation(
+    navController: NavController,
+    idLocalCompany: Int,
+    fragmentActivity: FragmentActivity
+) {
     CompositionLocalProvider(LocalFragmentActivity provides fragmentActivity) {
         NavHost(
             modifier = Modifier.navigationBarsPadding(),
@@ -31,9 +38,9 @@ fun Navigation(navController: NavController, idLocalCompany: Int, fragmentActivi
 
             composable(Screens.RUTAS.route) {
                 if (idLocalCompany == 53) {
-                    RouteScreen(fragmentActivity)
+                    MacroRegionsScreen(fragmentActivity)
                 } else {
-                    RouteScreen(fragmentActivity)
+                    MacroRegionsScreen(fragmentActivity)
                 }
             }
 
@@ -46,6 +53,14 @@ fun Navigation(navController: NavController, idLocalCompany: Int, fragmentActivi
                 StopScreen(fragmentActivity)
             }
 
+            composable(Screens.LINE.route) {
+                LineScreen(fragmentActivity)
+            }
+
+            composable(Screens.DETAIL_LINE.route) {
+                DetailLineScreen(fragmentActivity)
+            }
+
             // Navegacion modulos para manejar el back
             if (navController.currentDestination?.route == Screens.COMO_IR.route) {
                 fragmentActivity.finish()
@@ -53,5 +68,4 @@ fun Navigation(navController: NavController, idLocalCompany: Int, fragmentActivi
         }
     }
 }
-
 

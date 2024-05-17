@@ -10,9 +10,9 @@ import com.movilityado.linesmodule.LineModuleInfo
 
 class LineModuleObserver(
     private val navController: NavController,
-    private val baseContext : Context,
-    private val showArrow : (Boolean) -> Unit,
-    private val onTitleUpdated: (String) -> Unit,
+    private val baseContext: Context,
+    private val showArrow: (Boolean) -> Unit,
+    private val onTitleUpdated: (String) -> Unit
 ) {
 
     init {
@@ -28,7 +28,8 @@ class LineModuleObserver(
                     val nameMacroRegion = LineModuleInfo.getInfoLines().getDescMacroRegion()
                     val title = baseContext.getString(R.string.obs_route)
                     onTitleUpdated("$title $nameMacroRegion")
-                    showArrow (true)
+                    showArrow(true)
+                    navController.navigate(Screens.LINE.route)
                 }
             })
     }
@@ -39,7 +40,8 @@ class LineModuleObserver(
                 override fun onPropertyChanged(sender: Observable?, propertyId: Int) {
                     val title = baseContext.getString(R.string.obs_detail_route)
                     onTitleUpdated(title)
-                    showArrow (true)
+                    showArrow(true)
+                    navController.navigate(Screens.DETAIL_LINE.route)
                 }
             })
     }
@@ -48,7 +50,7 @@ class LineModuleObserver(
         LineModuleInfo.getInfoLines().getIdStop()
             .addOnPropertyChangedCallback(object : Observable.OnPropertyChangedCallback() {
                 override fun onPropertyChanged(sender: Observable?, propertyId: Int) {
-                    showArrow (true)
+                    showArrow(true)
                     StopDetailInfoModule.setInfoAppCompany(baseContext, 11)
                     StopDetailInfoModule.getInfoStop().setInfoStop(busLineID = LineModuleInfo.getInfoLines().getIdRouteS(),
                         busStopID = LineModuleInfo.getInfoLines().getIdStop().get().toString())
@@ -57,3 +59,5 @@ class LineModuleObserver(
             })
     }
 }
+
+

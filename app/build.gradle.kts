@@ -12,7 +12,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.baseoracle"
+        applicationId = "com.example.ahorrobusbase"
         minSdk = 26
         targetSdk = 34
         versionCode = 1
@@ -83,7 +83,7 @@ dependencies {
     implementation(libs.logging.interceptor)
     implementation(libs.navigation.compose)
 
-    implementation ("com.mobility.ado:linesModule:0.0.29")
+    implementation ("com.mobility.ado:linesModule:0.2.1")
     implementation ("com.mobility.ado.stopModule:stopDetailModule:0.0.13")
 
 }

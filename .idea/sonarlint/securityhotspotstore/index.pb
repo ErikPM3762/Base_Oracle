@@ -71,3 +71,13 @@ w
 Gapp/src/main/java/com/example/baseoracle/navigation/RouteScreenState.kt,3\9\39c2720de42a545e07bd27e8ae4fbd1182ee3362
 w
 Gapp/src/main/java/com/example/baseoracle/ui/route/LineModuleObserver.kt,a\a\aa62e32c1eec44f1c341bf25d53ea2a34f834c8f
+u
+Eapp/src/main/java/com/example/baseoracle/ui/route/RouteScreenState.kt,8\b\8baf75c1c417641cf388ebc3955559951e164e0c
+q
+Aapp/src/main/java/com/example/baseoracle/ui/route/LineasScreen.kt,6\a\6aad0a9dce1e8643dbd4385874b926d89c7cb1e6
+u
+Eapp/src/main/java/com/example/baseoracle/ui/route/DetailLineScreen.kt,5\f\5f07ca8f88cd17dd68d4b3c91d01bc8e8b6dcb11
+o
+?app/src/main/java/com/example/baseoracle/ui/route/LineScreen.kt,9\1\910272bde0faaf3f4b4c4927451631bffeb6a9e7
+w
+Gapp/src/main/java/com/example/baseoracle/ui/route/MacroRegionsScreen.kt,5\b\5bb4da95f3f74d62134221e29bc2b2114021aa64
