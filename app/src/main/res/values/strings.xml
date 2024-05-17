@@ -1,16 +1,16 @@
 <resources>
-    <string name="app_name">Ahorrobus Base</string>
+    <string name="app_name">Benidorm Base</string>
 
     <!--    Items menu-->
-    <string name="item_home">Como ir</string>
-    <string name="item_route">Rutas</string>
-    <string name="item_recharge">Recargas</string>
+    <string name="item_home">Viajar</string>
+    <string name="item_route">Lineas</string>
+    <string name="item_recharge">Mobility Pay</string>
 
     <!--   Top Bar-->
     <string name="top_bar_route">Rutas por estado</string>
     <string name="top_bar_stop_detail">Detalle de parada</string>
 
     <!--   Observer-->
-    <string name="obs_route">Rutas de</string>
+    <string name="obs_route">Líneas de</string>
     <string name="obs_detail_route">Detalle de ruta</string>
 </resources>

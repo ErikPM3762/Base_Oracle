@@ -23,7 +23,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.baseoracle.theme.Gotham
-import com.example.baseoracle.theme.ahorrobusPrimary
+import com.example.baseoracle.theme.avanzaPrimary
 import com.example.baseoracle.theme.navigationBackgroundSelect
 
 @Composable
@@ -42,7 +42,7 @@ fun BottomNavigationBar(navController: NavController) {
     ) {
         items.forEach { screen ->
             val selected = when (screen.route) {
-                Screens.RUTAS.route -> currentRoute == Screens.RUTAS.route || currentRoute == Screens.STOP.route
+                Screens.RUTAS.route -> currentRoute == Screens.RUTAS.route || currentRoute == Screens.STOP.route || currentRoute == Screens.LINE.route || currentRoute == Screens.DETAIL_LINE.route
                 else -> currentRoute == screen.route
             }
             BottomNavigationItem(
@@ -59,7 +59,7 @@ fun BottomNavigationBar(navController: NavController) {
                         Icon(
                             painter = painterResource(id = screen.icon),
                             contentDescription = screen.label,
-                            tint = if (selected) ahorrobusPrimary else Color.Gray,
+                            tint = if (selected) avanzaPrimary else Color.Gray,
                             modifier = Modifier.size(24.dp)
                         )
                     }
@@ -90,7 +90,7 @@ fun BottomNavigationBar(navController: NavController) {
                         launchSingleTop = true
                     }
                 },
-                selectedContentColor = ahorrobusPrimary,
+                selectedContentColor = avanzaPrimary,
                 unselectedContentColor = Color.Gray,
                 alwaysShowLabel = true
             )

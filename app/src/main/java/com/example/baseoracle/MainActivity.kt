@@ -16,6 +16,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
@@ -31,11 +32,11 @@ import com.example.baseoracle.ui.route.LineModuleObserver
 import com.movilityado.linesmodule.LineModuleInfo
 import dagger.hilt.android.AndroidEntryPoint
 
-private const val DESC_REGION = "Ahorrobus"
+private const val DESC_REGION = "Benidorm"
 
 @AndroidEntryPoint
 class MainActivity : FragmentActivity() {
-    private val idLocalCompany = 11
+    private val idLocalCompany = 5
     private var currentTitle: String by mutableStateOf("")
     private var showTopBar: Boolean by mutableStateOf(false)
     private var showArrow: Boolean by mutableStateOf(false)
@@ -68,7 +69,8 @@ class MainActivity : FragmentActivity() {
                                             IconButton(onClick = { onBackPressed() }) {
                                                 Icon(
                                                     painter = painterResource(R.drawable.arrow_right),
-                                                    contentDescription = "Back"
+                                                    contentDescription = "Back",
+                                                    tint = Color.Black
                                                 )
                                             }
                                         }
@@ -76,7 +78,8 @@ class MainActivity : FragmentActivity() {
                                             text = currentTitle,
                                             fontFamily = Gotham,
                                             fontWeight = FontWeight.Light,
-                                            fontSize = 18.sp
+                                            fontSize = 18.sp,
+                                            color = Color.Black
                                         )
                                     }
                                 }

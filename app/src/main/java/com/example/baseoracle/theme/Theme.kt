@@ -11,9 +11,9 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
 private val lightColorPalette = lightColors(
-    primary = ahorrobusPrimary,
-    primaryVariant = ahorrobusPrimary,
-    secondary = ahorrobusPrimary)
+    primary = avanzaHeader,
+    primaryVariant = avanzaHeader,
+    secondary = avanzaHeader)
 
 @Composable
 fun BaseOracleTheme(
@@ -26,7 +26,7 @@ fun BaseOracleTheme(
         SideEffect {
             val window = (view.context as Activity).window
             window.statusBarColor = colors.primary.toArgb()
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
         }
     }
 
