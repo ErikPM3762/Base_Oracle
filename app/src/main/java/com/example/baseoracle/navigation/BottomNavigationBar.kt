@@ -42,7 +42,7 @@ fun BottomNavigationBar(navController: NavController) {
     ) {
         items.forEach { screen ->
             val selected = when (screen.route) {
-                Screens.RUTAS.route -> currentRoute == Screens.RUTAS.route || currentRoute == Screens.STOP.route
+                Screens.RUTAS.route -> currentRoute == Screens.RUTAS.route || currentRoute == Screens.STOP.route || currentRoute == Screens.LINE.route || currentRoute == Screens.DETAIL_LINE.route
                 else -> currentRoute == screen.route
             }
             BottomNavigationItem(
