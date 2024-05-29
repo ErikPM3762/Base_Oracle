@@ -29,6 +29,8 @@ import com.example.baseoracle.navigation.Screens
 import com.example.baseoracle.theme.BaseOracleTheme
 import com.example.baseoracle.theme.Gotham
 import com.example.baseoracle.ui.route.LineModuleObserver
+import com.movilityado.common.utils.InfoLines
+import com.movilityado.data.TypeApp
 import com.movilityado.linesmodule.LineModuleInfo
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -36,7 +38,7 @@ private const val DESC_REGION = "Benidorm"
 
 @AndroidEntryPoint
 class MainActivity : FragmentActivity() {
-    private val idLocalCompany = 5
+    private val idLocalCompany = 51
     private var currentTitle: String by mutableStateOf("")
     private var showTopBar: Boolean by mutableStateOf(false)
     private var showArrow: Boolean by mutableStateOf(false)
@@ -44,14 +46,13 @@ class MainActivity : FragmentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        LineModuleInfo.setInfoAppCompany(baseContext, idLocalCompany)
-        LineModuleInfo.getInfoLines().setInfoMacroRegion(42.toString(), DESC_REGION)
 
         setContent {
             BaseOracleTheme {
                 navController = rememberNavController()
 
                 observeNavController(navController)
+                LineModuleInfo.setInfoAppCompany(baseContext, 51, TypeApp.AVANZA)
                 LineModuleObserver(
                     navController = navController,
                     baseContext = baseContext,

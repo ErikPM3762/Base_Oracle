@@ -6,6 +6,7 @@ import androidx.navigation.NavController
 import com.example.baseoracle.R
 import com.example.baseoracle.navigation.Screens
 import com.mobilityado.stopdetailmodule.StopDetailInfoModule
+import com.movilityado.data.TypeApp
 import com.movilityado.linesmodule.LineModuleInfo
 
 class LineModuleObserver(
@@ -51,7 +52,7 @@ class LineModuleObserver(
             .addOnPropertyChangedCallback(object : Observable.OnPropertyChangedCallback() {
                 override fun onPropertyChanged(sender: Observable?, propertyId: Int) {
                     showArrow(true)
-                    StopDetailInfoModule.setInfoAppCompany(baseContext, 5)
+                    StopDetailInfoModule.setInfoAppCompany(baseContext, 51)
                     StopDetailInfoModule.getInfoStop().setInfoStop(busLineID = LineModuleInfo.getInfoLines().getIdRouteS(),
                         busStopID = LineModuleInfo.getInfoLines().getIdStop().get().toString())
                     navController.navigate(Screens.STOP.route)

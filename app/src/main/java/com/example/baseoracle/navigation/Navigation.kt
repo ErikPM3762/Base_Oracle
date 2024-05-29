@@ -11,7 +11,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.baseoracle.ui.home.HomeScreen
-import com.example.baseoracle.ui.route.MacroRegionsScreen
 import com.example.baseoracle.ui.rate.RateScreen
 import com.example.baseoracle.ui.route.DetailLineScreen
 import com.example.baseoracle.ui.route.LineScreen
@@ -38,9 +37,9 @@ fun Navigation(
 
             composable(Screens.RUTAS.route) {
                 if (idLocalCompany == 53) {
-                    MacroRegionsScreen(fragmentActivity)
+                    LineScreen(fragmentActivity)
                 } else {
-                    MacroRegionsScreen(fragmentActivity)
+                    LineScreen(fragmentActivity)
                 }
             }
 
@@ -51,10 +50,6 @@ fun Navigation(
             // Navegacion app
             composable(Screens.STOP.route) {
                 StopScreen(fragmentActivity)
-            }
-
-            composable(Screens.LINE.route) {
-                LineScreen(fragmentActivity)
             }
 
             composable(Screens.DETAIL_LINE.route) {
