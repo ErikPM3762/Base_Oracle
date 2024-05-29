@@ -29,6 +29,7 @@ import com.example.baseoracle.navigation.Screens
 import com.example.baseoracle.theme.BaseOracleTheme
 import com.example.baseoracle.theme.Gotham
 import com.example.baseoracle.ui.route.LineModuleObserver
+import com.movilityado.data.TypeApp
 import com.movilityado.linesmodule.LineModuleInfo
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -44,7 +45,7 @@ class MainActivity : FragmentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        LineModuleInfo.setInfoAppCompany(baseContext, idLocalCompany)
+        LineModuleInfo.setInfoAppCompany(baseContext, idLocalCompany, TypeApp.AVANZA_REGIONS)
         LineModuleInfo.getInfoLines().setInfoMacroRegion(42.toString(), DESC_REGION)
 
         setContent {
