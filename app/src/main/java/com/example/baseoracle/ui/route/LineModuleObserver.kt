@@ -1,6 +1,7 @@
 package com.example.baseoracle.ui.route
 
 import android.content.Context
+import android.util.Log
 import androidx.databinding.Observable
 import androidx.navigation.NavController
 import com.example.baseoracle.R
@@ -29,6 +30,7 @@ class LineModuleObserver(
                     val title = baseContext.getString(R.string.obs_route)
                     onTitleUpdated("$title $nameMacroRegion")
                     showArrow(true)
+                    Log.e("trakakakak","´s´s´s")
                     navController.navigate(Screens.LINE.route)
                 }
             })

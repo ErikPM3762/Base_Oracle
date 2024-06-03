@@ -1,5 +1,6 @@
 package com.example.baseoracle.navigation
 
+import android.util.Log
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider

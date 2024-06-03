@@ -57,3 +57,8 @@ o
 ?app/src/main/java/com/example/baseoracle/ui/route/LineScreen.kt,9\1\910272bde0faaf3f4b4c4927451631bffeb6a9e7
 w
 Gapp/src/main/java/com/example/baseoracle/ui/route/MacroRegionsScreen.kt,5\b\5bb4da95f3f74d62134221e29bc2b2114021aa64
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+\
+,.idea/inspectionProfiles/Project_Default.xml,4\9\496a238a6afa168dbaf6efd37bb459331589579c
