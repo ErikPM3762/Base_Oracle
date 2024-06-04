@@ -20,6 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContentProviderCompat
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
@@ -29,6 +30,7 @@ import com.example.baseoracle.navigation.Screens
 import com.example.baseoracle.theme.BaseOracleTheme
 import com.example.baseoracle.theme.Gotham
 import com.example.baseoracle.ui.route.LineModuleObserver
+import com.mobilityado.common.utils.MSPreferencesManager
 import com.movilityado.data.TypeApp
 import com.movilityado.linesmodule.LineModuleInfo
 import dagger.hilt.android.AndroidEntryPoint

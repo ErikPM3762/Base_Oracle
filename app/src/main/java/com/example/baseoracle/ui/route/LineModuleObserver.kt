@@ -2,10 +2,13 @@ package com.example.baseoracle.ui.route
 
 import android.content.Context
 import android.util.Log
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.databinding.Observable
 import androidx.navigation.NavController
 import com.example.baseoracle.R
 import com.example.baseoracle.navigation.Screens
+import com.mobilityado.common.utils.MSPreferencesManager
+import com.mobilityado.data.TypeApp
 import com.mobilityado.stopdetailmodule.StopDetailInfoModule
 import com.movilityado.linesmodule.LineModuleInfo
 
@@ -30,7 +33,6 @@ class LineModuleObserver(
                     val title = baseContext.getString(R.string.obs_route)
                     onTitleUpdated("$title $nameMacroRegion")
                     showArrow(true)
-                    Log.e("trakakakak","´s´s´s")
                     navController.navigate(Screens.LINE.route)
                 }
             })
@@ -53,7 +55,7 @@ class LineModuleObserver(
             .addOnPropertyChangedCallback(object : Observable.OnPropertyChangedCallback() {
                 override fun onPropertyChanged(sender: Observable?, propertyId: Int) {
                     showArrow(true)
-                    StopDetailInfoModule.setInfoAppCompany(baseContext, 5)
+                    StopDetailInfoModule.setInfoAppCompany(baseContext, 5, TypeApp.AVANZA_REGIONS)
                     StopDetailInfoModule.getInfoStop().setInfoStop(busLineID = LineModuleInfo.getInfoLines().getIdRouteS(),
                         busStopID = LineModuleInfo.getInfoLines().getIdStop().get().toString())
                     navController.navigate(Screens.STOP.route)
