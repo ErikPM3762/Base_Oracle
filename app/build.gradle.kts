@@ -83,7 +83,7 @@ dependencies {
     implementation(libs.logging.interceptor)
     implementation(libs.navigation.compose)
 
-    implementation ("com.mobility.ado.qa:linesModule:0.2.3")
-    implementation ("com.mobility.ado.stopModule:stopDetailModule:0.0.13")
+    implementation (libs.linesModule)
+    implementation (libs.stopDetailModule)
 
 }
