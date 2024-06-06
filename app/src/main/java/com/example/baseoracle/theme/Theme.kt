@@ -18,11 +18,12 @@ private val lightColorPalette = lightColors(
 @Composable
 fun BaseOracleTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
+    statusBarColorEnabled: Boolean = true,
     content: @Composable () -> Unit
 ) {
     val colors = lightColorPalette
     val view = LocalView.current
-    if (!view.isInEditMode) {
+    if (!view.isInEditMode && statusBarColorEnabled) {
         SideEffect {
             val window = (view.context as Activity).window
             window.statusBarColor = colors.primary.toArgb()

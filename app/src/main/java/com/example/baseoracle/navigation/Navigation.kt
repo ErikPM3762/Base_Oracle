@@ -10,6 +10,8 @@ import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.baseoracle.applyStatusBarConfig
+import com.example.baseoracle.resetStatusBarConfig
 import com.example.baseoracle.ui.home.HomeScreen
 import com.example.baseoracle.ui.route.MacroRegionsScreen
 import com.example.baseoracle.ui.rate.RateScreen
@@ -33,10 +35,12 @@ fun Navigation(
         ) {
             // Navegacion de navbar
             composable(Screens.COMO_IR.route) {
-                HomeScreen(navController)
+                fragmentActivity.applyStatusBarConfig(true)
+                HomeScreen(fragmentActivity)
             }
 
             composable(Screens.RUTAS.route) {
+                fragmentActivity.resetStatusBarConfig()
                 if (idLocalCompany == 53) {
                     MacroRegionsScreen(fragmentActivity)
                 } else {
@@ -45,19 +49,23 @@ fun Navigation(
             }
 
             composable(Screens.TARIFAS.route) {
+                fragmentActivity.resetStatusBarConfig()
                 RateScreen(navController)
             }
 
             // Navegacion app
             composable(Screens.STOP.route) {
+                fragmentActivity.resetStatusBarConfig()
                 StopScreen(fragmentActivity)
             }
 
             composable(Screens.LINE.route) {
+                fragmentActivity.resetStatusBarConfig()
                 LineScreen(fragmentActivity)
             }
 
             composable(Screens.DETAIL_LINE.route) {
+                fragmentActivity.resetStatusBarConfig()
                 DetailLineScreen(fragmentActivity)
             }
 
