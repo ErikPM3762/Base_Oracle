@@ -1,6 +1,7 @@
 package com.example.baseoracle.ui.home
 
 import android.app.Activity
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import androidx.compose.foundation.layout.fillMaxSize
@@ -37,6 +38,10 @@ fun HomeScreen(
     preferencesManager[PreferencesManager.Companion.Key.ID_COMPANY] = 11
     preferencesManager[PreferencesManager.Companion.Key.APP_TYPE] = TypeApp.URBANO
     preferencesManager.saveLocation(latDefault, longDefault)
+    val xx = fragmentActivity.supportFragmentManager
+    xx.fragments.forEach { fragment ->
+        Log.d("FragmentTag", "Fragment: ${fragment::class.java.simpleName}, Tag: ${fragment.tag}")
+    }
 
     // Creación del contenedor del Fragment
     AndroidView(

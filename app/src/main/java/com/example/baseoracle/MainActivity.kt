@@ -37,6 +37,9 @@ import com.example.baseoracle.theme.ahorrobusPrimary
 import com.example.baseoracle.ui.route.LineModuleObserver
 import com.mobilityado.mm.searcher.items.ISearchElement
 import com.mobilityado.mm.searcher.ui.IMmOnClickSearch
+import com.mobilityado.mm.searcher.ui.MMSearcherDialogFragment
+import com.mobilityado.stopdetailmodule.StopDetailInfoModule
+import com.movilityado.common.utils.InfoLines
 import com.movilityado.data.TypeApp
 import com.movilityado.linesmodule.LineModuleInfo
 import dagger.hilt.android.AndroidEntryPoint
@@ -162,7 +165,8 @@ class MainActivity : FragmentActivity(), IMmOnClickSearch {
     }
 
     override fun onClickLine(item: ISearchElement.SearchLine) {
-        showToast("Seleccionaste la lineas ${item.title} con id ${item.idLine}")
+        InfoLines.getInstance().setInfoLines(item.idLine, item.title, item.brand)
+        navController.navigate(Screens.DETAIL_LINE.route)
     }
 
     override fun onClickRoute(item: ISearchElement.SearchRoute) {
@@ -170,12 +174,15 @@ class MainActivity : FragmentActivity(), IMmOnClickSearch {
     }
 
     override fun onClickStop(item: ISearchElement.SearchStop) {
-        showToast("Seleccionaste la parada ${item.title} con id ${item.id}")
+        StopDetailInfoModule.setInfoAppCompany(baseContext, 11, com.mobilityado.data.TypeApp.URBANO)
+        StopDetailInfoModule.getInfoStop().setInfoStop(busStopID = item.id, busLineID = "")
+        navController.navigate(Screens.STOP.route)
     }
 
     private fun showToast(text: String) {
         Toast.makeText(baseContext, text, Toast.LENGTH_SHORT).show()
     }
+
 }
 
 fun FragmentActivity.applyStatusBarConfig(darkTheme: Boolean) {

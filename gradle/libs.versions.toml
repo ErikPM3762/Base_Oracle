@@ -4,15 +4,17 @@ kotlin = "1.9.0"
 compose = "1.6.7"
 hilt = "2.44"
 linesModule = "0.2.7"
+material3 = "1.2.1"
 retrofit = "2.9.0"
 room = "2.6.1"
 okhttp = "4.12.0"
 stopDetailModule = "0.0.17"
-mapModule = "0.0.8"
+mapModule = "0.0.9"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version = "1.9.0" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version = "1.6.1" }
+androidx-material3 = { module = "androidx.compose.material3:material3", version.ref = "material3" }
 compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "compose" }
 compose-material = { group = "androidx.compose.material", name = "material", version.ref = "compose" }
 compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "compose" }

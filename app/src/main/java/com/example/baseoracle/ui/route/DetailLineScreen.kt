@@ -33,7 +33,7 @@ fun DetailLineScreen(fragmentActivity: FragmentActivity) {
             if (fragmentManager.findFragmentById(containerView.id) == null) {
                 val navHostFragment = NavHostFragment.create(navGraphResourceId)
                 fragmentManager.beginTransaction()
-                    .add(containerView.id, navHostFragment)
+                    .replace(containerView.id, navHostFragment)
                     .setPrimaryNavigationFragment(navHostFragment)
                     .commitNowAllowingStateLoss()
             }
