@@ -85,5 +85,6 @@ dependencies {
 
     implementation (libs.linesModule)
     implementation (libs.stopDetailModule)
+    implementation (libs.mapModule)
 
 }

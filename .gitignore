@@ -17,3 +17,31 @@ local.properties
 .sonarlint/
 **/*.sonarlint
 
+# Ignorar archivos temporales de sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar archivos generados por el IDE
+.idea/
+*.iml
+*.swp
+
+# Ignorar archivos de compilación
+build/
+dist/
+out/
+*.class
+*.o
+*.so
+
+# Ignorar archivos de registro y temporales
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Ignorar archivos específicos del lenguaje (ejemplo para Java)
+*.jar
+*.war
+*.ear
+

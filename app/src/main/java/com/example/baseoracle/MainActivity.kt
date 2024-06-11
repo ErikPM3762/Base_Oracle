@@ -2,6 +2,9 @@ package com.example.baseoracle
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.view.WindowManager
+import android.widget.Toast
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
@@ -17,6 +20,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
@@ -29,8 +33,13 @@ import com.example.baseoracle.navigation.Navigation
 import com.example.baseoracle.navigation.Screens
 import com.example.baseoracle.theme.BaseOracleTheme
 import com.example.baseoracle.theme.Gotham
+import com.example.baseoracle.theme.avanzaPrimary
 import com.example.baseoracle.ui.route.LineModuleObserver
 import com.mobilityado.common.utils.MSPreferencesManager
+import com.mobilityado.mm.searcher.items.ISearchElement
+import com.mobilityado.mm.searcher.ui.IMmOnClickSearch
+import com.mobilityado.stopdetailmodule.StopDetailInfoModule
+import com.movilityado.common.utils.InfoLines
 import com.movilityado.data.TypeApp
 import com.movilityado.linesmodule.LineModuleInfo
 import dagger.hilt.android.AndroidEntryPoint
@@ -38,7 +47,7 @@ import dagger.hilt.android.AndroidEntryPoint
 private const val DESC_REGION = "Benidorm"
 
 @AndroidEntryPoint
-class MainActivity : FragmentActivity() {
+class MainActivity : FragmentActivity(), IMmOnClickSearch {
     private val idLocalCompany = 5
     private var currentTitle: String by mutableStateOf("")
     private var showTopBar: Boolean by mutableStateOf(false)
@@ -155,4 +164,39 @@ class MainActivity : FragmentActivity() {
         }
         super.onBackPressed()
     }
+
+
+    override fun onClickLine(item: ISearchElement.SearchLine) {
+        InfoLines.getInstance().setInfoLines(item.idLine, item.title, item.brand)
+        navController.navigate(Screens.DETAIL_LINE.route)
+    }
+
+    override fun onClickRoute(item: ISearchElement.SearchRoute) {}
+
+    override fun onClickStop(item: ISearchElement.SearchStop) {
+        StopDetailInfoModule.setInfoAppCompany(baseContext, 11, com.mobilityado.data.TypeApp.URBANO)
+        StopDetailInfoModule.getInfoStop().setInfoStop(busStopID = item.id, busLineID = "")
+        navController.navigate(Screens.STOP.route)
+    }
 }
+
+fun FragmentActivity.applyStatusBarConfig(darkTheme: Boolean) {
+    val window = window
+    window.statusBarColor = Color.Transparent.toArgb()
+    window.decorView.systemUiVisibility = (
+            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                    if (darkTheme) View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR else 0
+            )
+}
+
+private var originalStatusBarColor: Int = avanzaPrimary.toArgb()
+private var originalSystemUiVisibility: Int = 0
+
+fun FragmentActivity.resetStatusBarConfig() {
+    val window = window
+    window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+    window.statusBarColor = originalStatusBarColor
+    window.decorView.systemUiVisibility = originalSystemUiVisibility
+}
+
