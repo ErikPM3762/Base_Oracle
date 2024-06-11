@@ -22,13 +22,13 @@ fun HomeScreen(
 ) {
     val fragmentManager = fragmentActivity.supportFragmentManager
 
-    val latDefault = 23.634501
-    val longDefault = -102.552784
+    val latDefault = 38.5501
+    val longDefault = -0.1418
 
     val context = LocalContext.current
     val preferencesManager = remember { PreferencesManager.newInstance(context) }
-    preferencesManager[PreferencesManager.Companion.Key.ID_COMPANY] = 11
-    preferencesManager[PreferencesManager.Companion.Key.APP_TYPE] = TypeApp.URBANO
+    preferencesManager[PreferencesManager.Companion.Key.ID_COMPANY] = 5
+    preferencesManager[PreferencesManager.Companion.Key.APP_TYPE] = TypeApp.AVANZA_REGIONS
     preferencesManager.saveLocation(latDefault, longDefault)
 
     // Creación del contenedor del Fragment
