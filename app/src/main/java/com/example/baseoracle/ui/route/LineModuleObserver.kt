@@ -52,7 +52,7 @@ class LineModuleObserver(
             .addOnPropertyChangedCallback(object : Observable.OnPropertyChangedCallback() {
                 override fun onPropertyChanged(sender: Observable?, propertyId: Int) {
                     showArrow(true)
-                    StopDetailInfoModule.setInfoAppCompany(baseContext, 51, com.mobilityado.data.TypeApp.AVANZA_REGIONS)
+                    StopDetailInfoModule.setInfoAppCompany(baseContext, 51, com.mobilityado.data.TypeApp.AVANZA)
                     StopDetailInfoModule.getInfoStop().setInfoStop(busLineID = LineModuleInfo.getInfoLines().getIdRouteS(),
                         busStopID = LineModuleInfo.getInfoLines().getIdStop().get().toString())
                     navController.navigate(Screens.STOP.route)

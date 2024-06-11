@@ -55,3 +55,6 @@ u
 Eapp/src/main/java/com/example/baseoracle/ui/route/DetailLineScreen.kt,5\f\5f07ca8f88cd17dd68d4b3c91d01bc8e8b6dcb11
 o
 ?app/src/main/java/com/example/baseoracle/ui/route/LineScreen.kt,9\1\910272bde0faaf3f4b4c4927451631bffeb6a9e7
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
