@@ -22,8 +22,8 @@ fun HomeScreen(
 ) {
     val fragmentManager = fragmentActivity.supportFragmentManager
 
-    val latDefault = 23.634501
-    val longDefault = -102.552784
+    val latDefault = 41.492623
+    val longDefault = 2.036632
 
     val context = LocalContext.current
     val preferencesManager = remember { PreferencesManager.newInstance(context) }
