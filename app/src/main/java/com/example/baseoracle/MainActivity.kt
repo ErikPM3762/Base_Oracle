@@ -33,6 +33,7 @@ import com.example.baseoracle.navigation.Navigation
 import com.example.baseoracle.navigation.Screens
 import com.example.baseoracle.theme.BaseOracleTheme
 import com.example.baseoracle.theme.Gotham
+import com.example.baseoracle.theme.avanzaHeader
 import com.example.baseoracle.theme.avanzaPrimary
 import com.example.baseoracle.ui.route.LineModuleObserver
 import com.mobilityado.common.utils.MSPreferencesManager
@@ -193,7 +194,7 @@ fun FragmentActivity.applyStatusBarConfig(darkTheme: Boolean) {
             )
 }
 
-private var originalStatusBarColor: Int = avanzaPrimary.toArgb()
+private var originalStatusBarColor: Int = avanzaHeader.toArgb()
 private var originalSystemUiVisibility: Int = 0
 
 fun FragmentActivity.resetStatusBarConfig() {
