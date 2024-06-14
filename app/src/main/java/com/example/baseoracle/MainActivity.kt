@@ -171,7 +171,10 @@ class MainActivity : FragmentActivity(), IMmOnClickSearch {
         navController.navigate(Screens.DETAIL_LINE.route)
     }
 
-    override fun onClickRoute(item: ISearchElement.SearchRoute) {}
+    override fun onClickRoute(item: ISearchElement.SearchRoute) {
+        InfoLines.getInstance().setInfoLines(item.number, item.title, item.id)
+        navController.navigate(Screens.DETAIL_LINE.route)
+    }
 
     override fun onClickStop(item: ISearchElement.SearchStop) {
         StopDetailInfoModule.setInfoAppCompany(baseContext, 11, com.mobilityado.data.TypeApp.URBANO)

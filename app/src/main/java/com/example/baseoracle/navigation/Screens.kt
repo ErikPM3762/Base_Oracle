@@ -10,6 +10,8 @@ object Screens {
     val STOP = Screen(route = "stop", icon = -1, label = "")
     val LINE = Screen(route = "line", icon = -1, label = "")
     val DETAIL_LINE = Screen(route = "detailLine", icon = -1, label = "")
+    val CUSTOMER_CALENDAR = Screen(route = "calendar", icon = -1, label = "")
+
 
     data class Screen(
         val route: String,
