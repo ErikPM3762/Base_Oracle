@@ -171,7 +171,8 @@ class MainActivity : FragmentActivity(), IMmOnClickSearch {
     }
 
     override fun onClickRoute(item: ISearchElement.SearchRoute) {
-        InfoLines.getInstance().setInfoLines(item.number, item.title, item.id)
+        val line = item.number
+        InfoLines.getInstance().setInfoLines("L-$line", item.title, item.id)
         navController.navigate(Screens.DETAIL_LINE.route)
     }
 
