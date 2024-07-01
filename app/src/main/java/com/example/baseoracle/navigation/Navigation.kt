@@ -68,11 +68,6 @@ fun Navigation(
                 fragmentActivity.resetStatusBarConfig()
                 DetailLineScreen(fragmentActivity)
             }
-
-            // Navegacion modulos para manejar el back
-            if (navController.currentDestination?.route == Screens.COMO_IR.route) {
-                fragmentActivity.finish()
-            }
         }
     }
 }
