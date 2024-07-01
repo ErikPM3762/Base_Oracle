@@ -53,6 +53,7 @@ class MainActivity : FragmentActivity(), IMmOnClickSearch {
     private var showTopBar: Boolean by mutableStateOf(false)
     private var showArrow: Boolean by mutableStateOf(false)
     private lateinit var navController: NavController
+    private var navigateHome : Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -150,8 +151,15 @@ class MainActivity : FragmentActivity(), IMmOnClickSearch {
     }
 
     override fun onBackPressed() {
-        //Los ID screen son de la pantalla de donde vienen
-        when (navController.currentDestination?.route) {
+        val currentRoute = navController.currentDestination?.route
+        if (navigateHome && currentRoute in listOf(Screens.STOP.route, Screens.DETAIL_LINE.route)) {
+            if (navController.popBackStack(Screens.COMO_IR.route, false)) {
+                navigateHome = false
+                return
+            }
+        }
+
+        when (currentRoute) {
             Screens.STOP.route -> {
                 currentTitle = baseContext.getString(R.string.obs_detail_route)
             }
@@ -167,17 +175,20 @@ class MainActivity : FragmentActivity(), IMmOnClickSearch {
 
     override fun onClickLine(item: ISearchElement.SearchLine) {
         InfoLines.getInstance().setInfoLines(item.idLine, item.title, item.brand)
+        navigateHome = true
         navController.navigate(Screens.DETAIL_LINE.route)
     }
 
     override fun onClickRoute(item: ISearchElement.SearchRoute) {
         val line = item.number
         InfoLines.getInstance().setInfoLines("L-$line", item.title, item.id)
+        navigateHome = true
         navController.navigate(Screens.DETAIL_LINE.route)
     }
 
     override fun onClickStop(item: ISearchElement.SearchStop) {
         StopDetailInfoModule.setInfoAppCompany(baseContext, 51, com.mobilityado.data.TypeApp.AVANZA)
+        navigateHome = true
         StopDetailInfoModule.getInfoStop().setInfoStop(busStopID = item.id, busLineID = "")
         navController.navigate(Screens.STOP.route)
     }
